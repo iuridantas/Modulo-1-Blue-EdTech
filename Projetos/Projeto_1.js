@@ -1,4 +1,5 @@
 const prompt = require("prompt-sync")();
+console.clear()
 
 console.log('Um dos maiores sonhos que o homem já teve foi o de conseguir voar! Conquistar os céus e poder ver o mundo lá do alto, ter uma nova perspectiva do mundo em que vive foi um feito e tanto para toda a humanidade! Então vamos nos preparar para uma jornada de piloto?');
 console.log()
@@ -22,8 +23,8 @@ if (p5 == "sim"){p5=1}
 else {p5=0}
 
 
-if (p1+p2+p3+p4+p5==5) console.log("Você triunfa de maneira inquestionável e seus feitos serão lembrados por muitas gerações.");
-else if(p1+p2+p3+p4+p5==4) console.log ("Depois de muito esforço você conquista seu objetivo, embora não de maneira perfeita.");
-else if(p1+p2+p3+p4+p5==3) console.log ("Você chega perto de conseguir alcançar seu objetivo, mas acaba falhando por pouco.");
-else if(p1+p2+p3+p4+p5==1 || p1+p2+p3+p4+p5==2) console.log ("Você falha, mas ainda consegue fugir da situação");
-else console.log ("Você falha miseravelmente.");
+if (p1+p2+p3+p4+p5==5) console.log("Você está pronto para poder decolar! Boa viagem capitão!.");
+else if(p1+p2+p3+p4+p5==4) console.log ("Você está pronto para decolar! Mais na proxima decolagem lembre-se de conferir todo o checklist!");
+else if(p1+p2+p3+p4+p5==3) console.log ("Você chegou perto de conseguir a autorização para voar, confira o checklist novamente!");
+else if(p1+p2+p3+p4+p5==1 || p1+p2+p3+p4+p5==2) console.log ("Voo não autorizado! checklist não conferido corretamente!");
+else console.log ("Voo não autorizado! Você não tem condições de voar!");
