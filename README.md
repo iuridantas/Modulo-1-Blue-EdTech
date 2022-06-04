@@ -1,2 +1,2 @@
 # Modulo-1-Blue-EdTech
- Módulo 1 do curso de Full Stack da Blue EdTech.
+ Projetos do módulo 1 do curso de Full Stack da Blue EdTech.
