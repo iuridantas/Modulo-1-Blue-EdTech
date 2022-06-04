@@ -72,11 +72,7 @@ while (true) {
     }
 
     console.log();
-    let novojogo = prompt(
-        `${j} o jogo foi finalizado. Deseja jogar novamente? `,
-    )
-        .toLowerCase()
-        .trim();
+    let novojogo = prompt(`${j} o jogo foi finalizado. Deseja jogar novamente? `,).toLowerCase();
     if (novojogo == `sim` || novojogo == `s`) {
         continue;
     } else {
