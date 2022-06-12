@@ -2,13 +2,21 @@ const prompt = require('prompt-sync')();
 while (true) {
     console.clear();
 
+    let vitoriax = 0;
+    let vitoriao = 0;
+
+    let jogada = `x`;
+
+    let velha = [0,1,2,3,4,5,6,7,8];
     let ticTacToe = [[], [], []];
     ticTacToe[2][2] = undefined;
     let ticTacToeLayout = '';
 
     console.log(`SEJA BEM VINDO AO JOGO DA VELHA!`);
     console.log();
-    console.log(`Segue o modelo mostrando onde está localizada cada coordenada: `);
+    console.log(
+        `Segue o modelo mostrando onde está localizada cada coordenada: `,
+    );
     console.log(`
      0 | 1 | 2
     ----------
@@ -37,7 +45,7 @@ ${displayItem(ticTacToe[2][0])} | ${displayItem(
     updateLayout();
     console.log();
 
-    const jogodavelha = Array(9).fill();
+    let jogodavelha = Array(9).fill();
 
     let ganhou = false;
     let vencedor;
@@ -45,32 +53,25 @@ ${displayItem(ticTacToe[2][0])} | ${displayItem(
     let jogador1 = prompt(`Digite o nome do primeiro jogador: `);
     let jogador2 = prompt(`Digite o nome do segundo jogador: `);
     console.log();
-    let escolha1 = prompt(`${jogador1} por favor selecione o simbulo 'x' ou 'o': `);
-    let escolha2 = prompt(`${jogador2} por favor selecione o simbulo 'x' ou 'o': `);
+    let rodadas = prompt(`Quantas rodadas deseja jogar: `)
     console.log();
-    if (escolha1 == 'x' && escolha2 == 'o') {
-        console.log('tudo certo, vamo pro jogo');
-    } else if (escolha1 == 'o' && escolha2 == 'x') {
-        console.log('tudo certo, vamo pro jogo');
-    } else {
-        console.log();
-        console.log('Selecione simbolos diferente');
-        console.log();
-        escolha1 = prompt(`${jogador1} por favor selecione o simbulo 'x' ou 'o': `);
-        escolha2 = prompt(`${jogador2} por favor selecione o simbulo 'x' ou 'o': `);
-    }
-    console.log();
+    while(rodadas>0){
+    
+    console.log(`${jogador1} jogara com a letra: x`)
+    console.log(`${jogador2} jogara com a letra: o`)
 
-    if (escolha1 == `x`) {
+    if (jogada == `x`) {
         jogada = `x`;
     } else {
         jogada = `o`;
     }
 
     while (!ganhou) {
+        console.log();
         console.log(`Vez do jogador ${jogada}`);
         console.log();
         const localdesejado = +prompt(`Digite onde deseja marcar a sua jogada (0 e 8): `);
+        velha[localdesejado] = 10;
         console.log();
         if (localdesejado == '0' && ticTacToe[0][0] == undefined) {
             (ticTacToe[0][0] = jogada), displayItem();
@@ -149,6 +150,12 @@ ${displayItem(ticTacToe[2][0])} | ${displayItem(
             [2, 4, 6],
         ];
 
+        if(velha[0] == 10 && velha[1] == 10 && velha[2] == 10 && velha[3] == 10 && velha[4] == 10 && velha[5] == 10 && velha[6] == 10 && velha[7] == 10 && velha[8] == 10){
+            console.log(`Partida terminou empatada!`)
+            console.log();
+            break;
+        } 
+
         for (const condicaovitoria of vitoria) {
             let valoresiguais = 0;
             let valorfinal;
@@ -170,13 +177,28 @@ ${displayItem(ticTacToe[2][0])} | ${displayItem(
             }
         }
     }
-
+    if(vencedor == `x`){
+        vitoriax++;
+    }else if(vencedor == `o`){
+        vitoriao++;
+    }
     if (ganhou) {
         console.log(`Jogador que escolheu a opção ${vencedor} venceu a partida.`);
-    } else {
-        console.log(`Partida terminou empatada.`);
+        ticTacToe = [[], [], []];
+        jogodavelha = Array(9).fill();
+        jogada = `x`;
+        console.log();
+    } 
+    ganhou = false
+    rodadas--
+}   
+    if(vitoriax>vitoriao && rodadas<=0){
+        console.log(`Jogador que escolheu o X ganhou o jogo!`)
+    }else if(vitoriao>vitoriax && rodadas<=0){
+        console.log(`Jogador que escolheu o O ganhou o jogo!`)
+    }else if(vitoriax==vitoriao && rodadas<=0){
+        console.log(`Jogo terminou em empate!`)
     }
-
     console.log();
     let novojogo = prompt(`Jogo finalizado. Deseja jogar novamente? `);
     if (novojogo == `sim` || novojogo == `s`) {
