@@ -8,15 +8,14 @@ while (true) {
     let jogada = `x`;
 
     let velha = [0,1,2,3,4,5,6,7,8];
-    let ticTacToe = [[], [], []];
-    ticTacToe[2][2] = undefined;
-    let ticTacToeLayout = '';
+    
+    let jogo = [[], [], []];
+    jogo[2][2] = undefined;
+    let layout = '';
 
     console.log(`SEJA BEM VINDO AO JOGO DA VELHA!`);
     console.log();
-    console.log(
-        `Segue o modelo mostrando onde está localizada cada coordenada: `,
-    );
+    console.log(`Segue o modelo mostrando onde está localizada cada coordenada: `);
     console.log(`
      0 | 1 | 2
     ----------
@@ -25,17 +24,17 @@ while (true) {
      6 | 7 | 8`);
 
     function updateLayout() {
-        ticTacToeLayout = `${displayItem(ticTacToe[0][0])} | ${displayItem(
-            ticTacToe[0][1],
-        )} | ${displayItem(ticTacToe[0][2])}
+        layout = `${displayItem(jogo[0][0])} | ${displayItem(
+            jogo[0][1],
+        )} | ${displayItem(jogo[0][2])}
 ---------
-${displayItem(ticTacToe[1][0])} | ${displayItem(
-            ticTacToe[1][1],
-        )} | ${displayItem(ticTacToe[1][2])}
+${displayItem(jogo[1][0])} | ${displayItem(
+            jogo[1][1],
+        )} | ${displayItem(jogo[1][2])}
 ---------
-${displayItem(ticTacToe[2][0])} | ${displayItem(
-            ticTacToe[2][1],
-        )} | ${displayItem(ticTacToe[2][2])}`;
+${displayItem(jogo[2][0])} | ${displayItem(
+            jogo[2][1],
+        )} | ${displayItem(jogo[2][2])}`;
     }
 
     function displayItem(item) {
@@ -68,47 +67,47 @@ ${displayItem(ticTacToe[2][0])} | ${displayItem(
 
     while (!ganhou) {
         console.log();
-        console.log(`Vez do jogador ${jogada}`);
+        console.log(`Vez do jogador que é representado pela letra: ${jogada}`);
         console.log();
         const localdesejado = +prompt(`Digite onde deseja marcar a sua jogada (0 e 8): `);
         velha[localdesejado] = 10;
         console.log();
-        if (localdesejado == '0' && ticTacToe[0][0] == undefined) {
-            (ticTacToe[0][0] = jogada), displayItem();
+        if (localdesejado == '0' && jogo[0][0] == undefined) {
+            (jogo[0][0] = jogada), displayItem();
             updateLayout();
-            console.log(ticTacToeLayout);
-        } else if (localdesejado == '1' && ticTacToe[0][1] == undefined) {
-            (ticTacToe[0][1] = jogada), displayItem();
+            console.log(layout);
+        } else if (localdesejado == '1' && jogo[0][1] == undefined) {
+            (jogo[0][1] = jogada), displayItem();
             updateLayout();
-            console.log(ticTacToeLayout);
-        } else if (localdesejado == '2' && ticTacToe[0][2] == undefined) {
-            (ticTacToe[0][2] = jogada), displayItem();
+            console.log(layout);
+        } else if (localdesejado == '2' && jogo[0][2] == undefined) {
+            (jogo[0][2] = jogada), displayItem();
             updateLayout();
-            console.log(ticTacToeLayout);
-        } else if (localdesejado == '3' && ticTacToe[1][0] == undefined) {
-            (ticTacToe[1][0] = jogada), displayItem();
+            console.log(layout);
+        } else if (localdesejado == '3' && jogo[1][0] == undefined) {
+            (jogo[1][0] = jogada), displayItem();
             updateLayout();
-            console.log(ticTacToeLayout);
-        } else if (localdesejado == '4' && ticTacToe[1][1] == undefined) {
-            (ticTacToe[1][1] = jogada), displayItem();
+            console.log(layout);
+        } else if (localdesejado == '4' && jogo[1][1] == undefined) {
+            (jogo[1][1] = jogada), displayItem();
             updateLayout();
-            console.log(ticTacToeLayout);
-        } else if (localdesejado == '5' && ticTacToe[1][2] == undefined) {
-            (ticTacToe[1][2] = jogada), displayItem();
+            console.log(layout);
+        } else if (localdesejado == '5' && jogo[1][2] == undefined) {
+            (jogo[1][2] = jogada), displayItem();
             updateLayout();
-            console.log(ticTacToeLayout);
-        } else if (localdesejado == '6' && ticTacToe[2][0] == undefined) {
-            (ticTacToe[2][0] = jogada), displayItem();
+            console.log(layout);
+        } else if (localdesejado == '6' && jogo[2][0] == undefined) {
+            (jogo[2][0] = jogada), displayItem();
             updateLayout();
-            console.log(ticTacToeLayout);
-        } else if (localdesejado == '7' && ticTacToe[2][1] == undefined) {
-            (ticTacToe[2][1] = jogada), displayItem();
+            console.log(layout);
+        } else if (localdesejado == '7' && jogo[2][1] == undefined) {
+            (jogo[2][1] = jogada), displayItem();
             updateLayout();
-            console.log(ticTacToeLayout);
-        } else if (localdesejado == '8' && ticTacToe[2][2] == undefined) {
-            (ticTacToe[2][2] = jogada), displayItem();
+            console.log(layout);
+        } else if (localdesejado == '8' && jogo[2][2] == undefined) {
+            (jogo[2][2] = jogada), displayItem();
             updateLayout();
-            console.log(ticTacToeLayout);
+            console.log(layout);
         }
 
         if (localdesejado < 0 || localdesejado > 8) {
@@ -184,7 +183,7 @@ ${displayItem(ticTacToe[2][0])} | ${displayItem(
     }
     if (ganhou) {
         console.log(`Jogador que escolheu a opção ${vencedor} venceu a partida.`);
-        ticTacToe = [[], [], []];
+        jogo = [[], [], []];
         jogodavelha = Array(9).fill();
         jogada = `x`;
         console.log();
@@ -193,9 +192,9 @@ ${displayItem(ticTacToe[2][0])} | ${displayItem(
     rodadas--
 }   
     if(vitoriax>vitoriao && rodadas<=0){
-        console.log(`Jogador que escolheu o X ganhou o jogo!`)
+        console.log(`Parabés ${jogador1}! Você ganhou o jogo!`)
     }else if(vitoriao>vitoriax && rodadas<=0){
-        console.log(`Jogador que escolheu o O ganhou o jogo!`)
+        console.log(`Parabéns ${jogador2}! Você ganhou o jogo!`)
     }else if(vitoriax==vitoriao && rodadas<=0){
         console.log(`Jogo terminou em empate!`)
     }
@@ -203,7 +202,8 @@ ${displayItem(ticTacToe[2][0])} | ${displayItem(
     let novojogo = prompt(`Jogo finalizado. Deseja jogar novamente? `);
     if (novojogo == `sim` || novojogo == `s`) {
         continue;
-    } else {
+    } else if (novojogo == `nao` || novojogo == `n`){
+        console.log();
         console.log(`Muito obrigado por ter jogado, até a próxima!`);
         break;
     }
