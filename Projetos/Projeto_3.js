@@ -192,7 +192,7 @@ ${displayItem(jogo[2][0])} | ${displayItem(
     rodadas--
 }   
     if(vitoriax>vitoriao && rodadas<=0){
-        console.log(`Parabés ${jogador1}! Você ganhou o jogo!`)
+        console.log(`Parabéns ${jogador1}! Você ganhou o jogo!`)
     }else if(vitoriao>vitoriax && rodadas<=0){
         console.log(`Parabéns ${jogador2}! Você ganhou o jogo!`)
     }else if(vitoriax==vitoriao && rodadas<=0){
