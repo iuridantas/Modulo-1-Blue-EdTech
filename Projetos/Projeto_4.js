@@ -159,13 +159,9 @@ if (desejaagua1 == `sim` || desejaagua1 == `s`) {
 }
 console.log();
 if (diego.teordesono == 0 || diego.teordeagua == 0 || diego.teordecomida == 0) {
-    console.log(
-        `Infelizmente Diego não pode ir para o local da guerra, pois um grande major precisa está sem sono ou hidratado ou alimentado.`,
-    );
+    console.log(`Infelizmente Diego não pode ir para o local da guerra, pois um grande major precisa está sem sono ou hidratado ou alimentado.`);
     console.log();
-    console.log(
-        `Como nosso major não estava 100%, ele vai estar dando suporte na base`,
-    );
+    console.log(`Então nosso major vai estar dando suporte na base`);
     prompt(`Digite enter para continuar `);
     console.clear();
     base = 0;
@@ -241,11 +237,43 @@ if (diego.teordesono == 0 || diego.teordeagua == 0 || diego.teordecomida == 0) {
     diego.teordeagua == 10 ||
     diego.teordecomida == 10
 ) {
-    console.log(
-        `O major Diego não está 100% para ir para guerra, pois algum teor ficou com apenas 10 pontos, porém ele disposto a ir, entretando por não está 100% ele chegara ao local com -5 de vida. Boa sorte major! `,
-    );
+    console.log(`O major Diego não está 100% para ir para guerra, pois algum teor ficou com apenas 10 pontos, porém ele disposto a ir, entretando por não está 100% ele vai está no morro com uma sniper dando suporte a tropa. Boa sorte major! `);
     seguir = true;
-    diego.mudavida(-5);
+    prompt(`Digite enter para continuar `);
+    console.clear();
+    console.log(`Nossos guerreiros estão se locomovendo até o local, entretanto temos tropas inimigas durante o caminho acertem eles para naõ temos percas de tropas`)
+    console.log();
+    console.log(`Para acertar o tiro você precisa adivinhar qual o numero pensado pelo computador.`);
+    console.log(`Se não acertar em 3 tentativas você falha a missão e o jogo acaba.`);
+    console.log();
+    acerto = 0;
+    let vitoria1 = false;
+    while (!vitoria1) {
+        let numeropess = +prompt("Escolha um numero entre 0 e 10: ")
+
+        function getRandomIntInclusive(min, max) // MDN Web Docs
+        {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        let numerocomp = getRandomIntInclusive(0,10)
+
+        if (numeropess == numerocomp) {
+            console.log();
+            console.log(`O numero pensado pelo computador foi ${numerocomp}. Você acertou o número!`)
+            vitoria1 = true;
+        }else 
+            console.log(`O numero pensado pelo computador foi ${numerocomp}. Você errou o número!`)
+            acerto--
+        if(acerto<=-3){
+            console.log();
+            console.log(`Você falhou a missão!`)
+            vitoria1 = true;
+        }
+
+    }
 } else if (
     diego.teordesono == 20 ||
     diego.teordeagua == 20 ||
@@ -257,6 +285,7 @@ if (diego.teordesono == 0 || diego.teordeagua == 0 || diego.teordecomida == 0) {
     seguir = true;
     diego.mudavida(0);
 }
+
 
 // console.log();
 // let novojogo = prompt(`Aventura finalizada. Deseja jogar novamente? `);
