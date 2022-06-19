@@ -60,6 +60,12 @@ while (!missao) {
     console.log(`${contadorDias}º dia de guerra!`);
     console.log();
     let horasdormida = prompt(`Diego conseguiu dormir bem? `);
+    while (horasdormida != "sim" && horasdormida != "s" && horasdormida != "nao" && horasdormida != "n"){
+        console.log();
+        console.log(`Você só pode escolher entre sim ou nao`);
+        console.log();
+        horasdormida = prompt(`Diego conseguiu dormir bem? `);
+    }
     console.log();
     if (horasdormida == `sim` || horasdormida == `s`) {
         console.log(`Que bom! Ele está totalmente descansado!`);
@@ -235,6 +241,8 @@ while (!missao) {
                 console.clear();
                 base = 0;
             }
+            console.log();
+            console.log(`Ápos essa missão você retorna para a base, para recuperar os teores e ajudar no combate.`);
         }
     } else if (diego.teordesono == 10 || diego.teordeagua == 10 || diego.teordecomida == 10) {
         console.log(`O major Diego não está 100% para ir para guerra, pois algum teor ficou com apenas 10 pontos, porém ele disposto a ir, entretando por não está 100% ele vai está no morro com uma sniper dando suporte a tropa. Boa sorte major! `);
@@ -282,8 +290,9 @@ while (!missao) {
                 vitoria1 = true;
                 missao = true;
             }
-
         }
+        console.log();
+        console.log(`Ápos essa missão você retorna para a base, para recuperar os teores e ajudar no combate.`);
     } else if (diego.teordesono == 20 || diego.teordeagua == 20 || diego.teordecomida == 20) {
         console.log(`O major Diego está 100% e dara o melhor de si nessa guerra. Boa sorte major!`);
         seguir = true;
@@ -306,6 +315,8 @@ while (!missao) {
     let jogador;
     let pc;
     let r = 4;
+    let p1 = 0;
+    let p2 = 0;
 
     for (let i = 0; i < r; i++) {
         console.log();
@@ -334,33 +345,42 @@ while (!missao) {
             console.log(`Tropa aliada: ${p} x Tropa inimiga: ${resp}`);
 
             if (jogador == 3 && pc == 1) {
+                console.log();
                 console.log(`Nossas tropas venceu essa tropa inimiga`);
                 diego.mudavida(0);
             } else if (jogador == 1 && pc == 3) {
+                console.log();
                 console.log(`Tropas inimigas abatem alguns de nossos soldados e você leva um tiro de raspão. Cuidado!`);
                 diego.mudavida(-5);
             } else if (jogador < pc) {
-                console.log(`Nossas tropas venceu essa tropa inimiga`);
-                diego.mudavida(0);
-            } else if (pc < jogador) {
+                console.log();
                 console.log(`Tropas inimigas abatem alguns de nossos soldados e você leva um tiro de raspão. Cuidado!`);
                 diego.mudavida(-5);
+            } else if (pc < jogador) {
+                console.log();
+                console.log(`Nossas tropas venceu essa tropa inimiga`);
+                diego.mudavida(0);
             } else if (pc == jogador) {
+                console.log();
                 console.log(`Ambas as tropas recuam e evitam um confronto`);
             }
-            console.log();
+            break;
+        }
     }
     if (diego.vida == 0) {
+        console.log();
         console.log(`Você falhou a missão!`);
         vitoria2 = true;
         seguir = true;
         missao = true;
     } else if (diego.vida >= 5 && diego.vida <=10){
+        console.log();
         console.log(`Não esperamos passar por esse sufoco, como estamos com soldados feridos vamos recuar.`);
         vitoria2 = true;
         seguir = true;
         missao = true;
-    }else 
+    }else{
+        console.log();
         console.log(`Conseguimos abater os inimigos e obtivemos sucesso na missão!`);
         vitoria2 = true;
         seguir = true;
