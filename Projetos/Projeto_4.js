@@ -302,7 +302,7 @@ while (!missao) {
                 base = 0;
             }
             console.log();
-            console.log(`Ápos essa missão você retorna para a base, para recuperar os teores e ajudar no combate.`);
+            console.log(`Ápos essa missão Diego se desloca para seu alojamento, para recuperar os teores e ajudar no combate.`);
         }
     } else if (diego.teordesono == 10 || diego.teordeagua == 10 || diego.teordecomida == 10) {
         console.log(`O major Diego não está 100% para ir para guerra, pois algum teor ficou com apenas 10 pontos, porém ele disposto a ir, entretando por não está 100% ele vai está no morro com uma sniper dando suporte a tropa. Boa sorte major! `);
@@ -358,7 +358,8 @@ while (!missao) {
             }
         }
         console.log();
-        console.log(`Ápos essa missão você retorna para a base, para recuperar os teores e ajudar no combate.`);
+        console.log(`Ápos essa missão Diego retorna para a base, para recuperar os teores e ajudar no combate.`);
+        console.log();
     } else if (diego.teordesono == 20 || diego.teordeagua == 20 || diego.teordecomida == 20) {
         console.log(`O major Diego está 100% e dara o melhor de si nessa guerra. Boa sorte major!`);
         seguir = true;
@@ -381,8 +382,6 @@ while (!missao) {
     let jogador;
     let pc;
     let r = 4;
-    let p1 = 0;
-    let p2 = 0;
 
     for (let i = 0; i < r; i++) {
         console.log();
