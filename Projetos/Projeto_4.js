@@ -60,17 +60,17 @@ while (!missao) {
     console.log(`${contadorDias}º dia de guerra!`);
     console.log();
     let horasdormida = prompt(`Diego conseguiu dormir bem? `);
-    while (horasdormida != "sim" && horasdormida != "s" && horasdormida != "nao" && horasdormida != "n"){
+    while (horasdormida != `sim` && horasdormida != `nao`){
         console.log();
         console.log(`Você só pode escolher entre sim ou nao`);
         console.log();
         horasdormida = prompt(`Diego conseguiu dormir bem? `);
     }
     console.log();
-    if (horasdormida == `sim` || horasdormida == `s`) {
+    if (horasdormida == `sim`) {
         console.log(`Que bom! Ele está totalmente descansado!`);
         diego.mudasono(0);
-    } else if (horasdormida == `nao` || horasdormida == `n`) {
+    } else if (horasdormida == `nao`) {
         console.log(`Ele não teve uma otima noite de sono! E tende a ter um dia mais exausto.`);
         diego.mudasono(-10);
     }
@@ -78,21 +78,33 @@ while (!missao) {
     console.log(`Diego acordou com cede e com fome, lembre-se que um bom guerreiro deve-se está de barriga cheia e hidratado`);
     console.log();
     let desejacomer = prompt(`Deseja alimentar o major Diego? `);
+    while (desejacomer != `sim` && desejacomer != `nao`){
+        console.log();
+        console.log(`Você só pode escolher entre sim ou nao`);
+        console.log();
+        desejacomer = prompt(`Deseja alimentar o major Diego? `);
+    }
     console.log();
-    if (desejacomer == `sim` || desejacomer == `s`) {
+    if (desejacomer == `sim`) {
         console.log(`Após uma ótima alimentação, vamos hidratar? `);
         diego.mudacomida(0);
-    } else if (desejacomer == `nao` || desejacomer == `n`) {
+    } else if (desejacomer == `nao`) {
         console.log(`Tudo bem, porém Diego tende a sentir fome quando não come. Agora vamos hidratar? `);
         diego.mudacomida(-10);
     }
     console.log();
     let desejaagua = prompt(`Deseja hidratar o major Diego? `);
+    while (desejaagua != `sim` && desejaagua != `nao`){
+        console.log();
+        console.log(`Você só pode escolher entre sim ou nao`);
+        console.log();
+        desejaagua = prompt(`Deseja hidratar o major Diego? `);
+    }
     console.log();
-    if (desejaagua == `sim` || desejaagua == `s`) {
+    if (desejaagua == `sim`) {
         console.log(`Major hidratado`);
         diego.mudaagua(0);
-    } else if (desejaagua == `nao` || desejaagua == `n`) {
+    } else if (desejaagua == `nao`) {
         console.log(`Tudo bem, porém Diego tende a sentir sede quando não bebe água.`);
         diego.mudaagua(-10);
     }
@@ -113,43 +125,61 @@ while (!missao) {
     `);
     console.log();
     let horasdormida1 = prompt(`Diego deve-se descansar? `);
+    while (horasdormida1 != `sim` && horasdormida1 != `nao`){
+        console.log();
+        console.log(`Você só pode escolher entre sim ou nao`);
+        console.log();
+        horasdormida1 = prompt(`Diego deve-se descansar? `);
+    }
     console.log();
-    if (horasdormida1 == `sim` || horasdormida1 == `s`) {
+    if (horasdormida1 == `sim`) {
         console.log(`Durma bem Diego! Amanhã o dia será longo e boa sorte major! `);
-        if (horasdormida == `sim` || horasdormida == `s`) {
+        if (horasdormida == `sim`) {
             diego.mudasono(0);
-        } else if (horasdormida == `nao` || horasdormida == `n`) {
+        } else if (horasdormida == `nao`) {
             diego.mudasono(10);
         }
-    } else if (horasdormida1 == `nao` || horasdormida1 == `n`) {
-        console.log(`Tudo bem, porém Diego tende a sentir fome quando não come. Agora vamos hidratar? `);
+    } else if (horasdormida1 == `nao`) {
+        console.log(`Tudo bem, porém Diego tende a ter um dia mais exausto. `);
         diego.mudasono(-10);
     }
     console.log();
     let desejacomer1 = prompt(`Deseja alimentar o major Diego? `);
+    while (desejacomer1 != `sim` && desejacomer1 != `nao`){
+        console.log();
+        console.log(`Você só pode escolher entre sim ou nao`);
+        console.log();
+        desejacomer1 = prompt(`Deseja alimentar o major Diego? `);
+    }
     console.log();
-    if (desejacomer1 == `sim` || desejacomer1 == `s`) {
+    if (desejacomer1 == `sim`) {
         console.log(`Após uma ótima alimentação, vamos hidratar?`);
-        if (desejacomer == `sim` || desejacomer == `s`) {
+        if (desejacomer == `sim`) {
             diego.mudacomida(0);
-        } else if (desejacomer == `nao` || desejacomer == `n`) {
+        } else if (desejacomer == `nao`) {
             diego.mudacomida(10);
         }
-    } else if (desejacomer1 == `nao` || desejacomer1 == `n`) {
-        console.log(`Tudo bem, porém Diego tende a sentir sede quando não bebe água.`);
+    } else if (desejacomer1 == `nao`) {
+        console.log(`Tudo bem, porém Diego tende a sentir fome quando não come. Agora vamos hidratar?`);
         diego.mudacomida(-10);
     }
     console.log();
     let desejaagua1 = prompt(`Deseja hidratar o major Diego? `);
+    while (desejaagua1 != `sim` && desejaagua1 != `nao`){
+        console.log();
+        console.log(`Você só pode escolher entre sim ou nao`);
+        console.log();
+        desejaagua1 = prompt(`Deseja hidratar o major Diego? `);
+    }
     console.log();
-    if (desejaagua1 == `sim` || desejaagua1 == `s`) {
+    if (desejaagua1 == `sim`) {
         console.log(`Major hidratado`);
-        if (desejaagua == `sim` || desejaagua == `s`) {
+        if (desejaagua == `sim`) {
             diego.mudaagua(0);
-        } else if (desejaagua == `nao` || desejaagua == `n`) {
+        } else if (desejaagua == `nao`) {
             diego.mudaagua(10);
         }
-    } else if (desejaagua1 == `nao` || desejaagua1 == `n`) {
+    } else if (desejaagua1 == `nao`) {
         console.log(`Tudo bem, porém Diego tende a sentir sede quando não bebe água.`);
         diego.mudaagua(-10);
     }
@@ -173,36 +203,66 @@ while (!missao) {
             console.log(`Nossos guerreiros precisam sair o mais rapido possivél! Vá ligando os nossos veiculos para ir adiantando! `);
             console.log();
             let p1 = prompt('Ligou os tanques de guerra? ');
+            while (p1 != `sim` && p1 != `nao`){
+                console.log();
+                console.log(`Você só pode escolher entre sim ou nao`);
+                console.log();
+                p1 = prompt('Ligou os tanques de guerra? ');
+            }
             let p2 = prompt('Ligou os blindados? ');
+            while (p2 != `sim` && p2 != `nao`){
+                console.log();
+                console.log(`Você só pode escolher entre sim ou nao`);
+                console.log();
+                p2 = prompt('Ligou os blindados? ');
+            }
             let p3 = prompt('Ligou os helicóptero? ');
+            while (p3 != `sim` && p3 != `nao`){
+                console.log();
+                console.log(`Você só pode escolher entre sim ou nao`);
+                console.log();
+                p3 = prompt('Ligou os helicóptero? ');
+            }
             let p4 = prompt('Ligou os caças? ');
+            while (p4 != `sim` && p4 != `nao`){
+                console.log();
+                console.log(`Você só pode escolher entre sim ou nao`);
+                console.log();
+                p4 = prompt('Ligou os caças? ');
+            }
             let p5 = prompt('Ligous os drones? ');
+            while (p5 != `sim` && p5 != `nao`){
+                console.log();
+                console.log(`Você só pode escolher entre sim ou nao`);
+                console.log();
+                p5 = prompt('Ligous os drones? ');
+            }
 
-            if (p1 == 'sim' || p1 == 's') {
+            if (p1 == 'sim') {
                 p1 = 1;
                 base++;
             } else {
                 p1 = 0;
             }
-            if (p2 == 'sim' || p2 == 's') {
+            if (p2 == 'sim') {
                 p2 = 1;
                 base++;
             } else {
                 p2 = 0;
             }
-            if (p3 == 'sim' || p3 == 's') {
+            if (p3 == 'sim') {
                 p3 = 1;
                 base++;
             } else {
                 p3 = 0;
             }
-            if (p4 == 'sim' || p4 == 's') {
+            if (p4 == 'sim') {
                 p4 = 1;
                 base++;
             } else {
                 p4 = 0;
             }
-            if (p5 == 'sim' || p5 == 's') {
+            if (p5 == 'sim') {
                 p5 = 1;
                 base++;
             } else {
@@ -263,6 +323,12 @@ while (!missao) {
         let vitoria1 = false;
         while (!vitoria1) {
             let numeropess = +prompt('Escolha um numero entre 0 e 10: ');
+            while (numeropess <0 || numeropess >10){
+                console.log();
+                console.log(`Você só pode escolher entre 0 e 10`);
+                console.log();
+                numeropess = prompt('Escolha um numero entre 0 e 10: ');
+            }
 
             function getRandomIntInclusive(min, max) {
                 // MDN Web Docs
@@ -389,10 +455,16 @@ while (!missao) {
 }
 console.log();
 let novojogo = prompt(`Aventura finalizada. Deseja jogar novamente? `);
-if (novojogo == `sim` || novojogo == `s`) {
+while (novojogo != `sim` && novojogo != `nao`){
+    console.log();
+    console.log(`Você só pode escolher entre sim ou nao`);
+    console.log();
+    novojogo = prompt('Aventura finalizada. Deseja jogar novamente? ');
+}
+if (novojogo == `sim`) {
     final = true;
     continue;
-} else {
+} else if (novojogo == `nao`) {
     console.log(`Muito obrigado por ter embarcado nessa aventura, até a próxima!`);
     final = true;
     break;
